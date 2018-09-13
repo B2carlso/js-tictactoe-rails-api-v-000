@@ -72,3 +72,22 @@ var resetBoard = function() {
   gameId = 0;
   $('td').empty();
 }
+
+var attachListeners = function() {
+  $("td").click(function(){
+    if(this.innerHTML === "" && !checkWinner()){
+      doTurn(this)
+    }
+  });
+   $("#save").click(function(){
+    saveGame()
+  });
+   $("#clear").click(function(){
+    $("td").empty()
+    turn = 0;
+    gameId = 0
+  });
+   $("#previous").click(function(){
+    showPreviousGames()
+  });
+};
