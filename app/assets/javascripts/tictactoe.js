@@ -6,3 +6,7 @@ var player = function() {
 var updateState = function(square) {
   $(square).text(player());
 }
+
+var setMessage = function(string) {
+  $('#message').text(string);
+}
