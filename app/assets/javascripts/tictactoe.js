@@ -46,3 +46,23 @@ var doTurn = function(square) {
    resetBoard();
  }
 }
+
+function saveGame() {
+  let state = [];
+   $('td').text((index, square) => {
+    state.push(square);
+  });
+   gameData = { state };
+   if (gameId) {
+    $.ajax({
+      type: 'PATCH',
+      url: "/games/" + gameId, data: gameData
+    });
+  } else {
+    $.post('/games', gameData, function(game) {
+      gameId = game.data.id;
+      $('#games').append(`<button id="gameid-${game.data.id}">${game.data.id}</button><br>`);
+      $("#gameid-" + game.data.id).on('click', () => showPreviousGames(game.data.id));
+    });
+  }
+}
