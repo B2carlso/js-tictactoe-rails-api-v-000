@@ -66,3 +66,9 @@ function saveGame() {
     });
   }
 }
+
+var resetBoard = function() {
+  turn = 0;
+  gameId = 0;
+  $('td').empty();
+}
