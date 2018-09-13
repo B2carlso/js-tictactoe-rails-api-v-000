@@ -3,6 +3,6 @@ var player = function() {
   //X turn if even, O if odd
 }
 
-var updateState = function(){
-  
+var updateState = function(player){
+
 }
