@@ -33,3 +33,16 @@ var checkWinner = function() {
   });
   return winner;
 };
+
+var doTurn = function(square) {
+ updateState(square)
+ turn++;
+ if (checkWinner()) {
+   saveGame();
+   resetBoard();
+ } else if (turn === 9) {
+   setMessage("Tie game.");
+   saveGame();
+   resetBoard();
+ }
+}
